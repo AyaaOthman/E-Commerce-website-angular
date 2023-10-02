@@ -1,0 +1,207 @@
+<section class="vh-100" style="background-color: #eee">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11 py-3">
+        <div class="card text-black" style="border-radius: 25px">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
+                  Sign up
+                </p>
+
+                <form
+                  [formGroup]="signUpForm"
+                  (ngSubmit)="handelSignUpSubmit()"
+                  class="mx-1 mx-md-4"
+                >
+                  <!-- //Name -->
+                  <div>
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="signUpName"
+                          >Your Name</label
+                        >
+                        <input
+                          type="text"
+                          id="signUpName"
+                          class="form-control"
+                          formControlName="signUpName"
+                        />
+                        <div
+                          class="text-danger"
+                          *ngIf="
+                            signUpForm.controls['signUpName'].touched &&
+                            signUpForm.controls['signUpName'].invalid
+                          "
+                        >
+                          <span
+                            *ngIf="signUpForm.controls['signUpName'].errors?.['required']"
+                            >This Filed is required</span
+                          >
+                          <span
+                            *ngIf="signUpForm.controls['signUpName'].errors?.['minlength']"
+                            >Please write Your Full Name</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- email -->
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="signUpEmail"
+                        >Your Email</label
+                      >
+                      <input
+                        type="email"
+                        id="signUpEmail"
+                        class="form-control"
+                        formControlName="signUpEmail"
+                      />
+                      <div
+                        class="text-danger"
+                        *ngIf="
+                          signUpForm.controls['signUpEmail'].touched &&
+                          signUpForm.controls['signUpEmail'].invalid
+                        "
+                      >
+                        <span
+                          *ngIf="signUpForm.controls['signUpEmail'].errors?.['required']"
+                          >This Filed is required</span
+                        >
+                        <span
+                          *ngIf="signUpForm.controls['signUpEmail'].errors?.['pattern']"
+                          >email is not valid Ex:example@domain.com</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <!-- //UserName -->
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="userName">User Name</label>
+                      <input
+                        type="text"
+                        id="userName"
+                        class="form-control"
+                        formControlName="userName"
+                      />
+                      <div
+                        class="text-danger"
+                        *ngIf="
+                          signUpForm.controls['userName'].touched &&
+                          signUpForm.controls['userName'].invalid
+                        "
+                      >
+                        <span
+                          *ngIf="signUpForm.controls['userName'].errors?.['required']"
+                          >This Filed is required</span
+                        >
+                        <span
+                          *ngIf="signUpForm.controls['userName'].errors?.['pattern']"
+                          >user name must be more than 3 letters with no
+                          spaces</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- password -->
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="signUpPassword"
+                        >Password</label
+                      >
+                      <input
+                        type="text"
+                        id="signUpPassword"
+                        class="form-control"
+                        formControlName="signUpPassword"
+                      />
+                      <div
+                        class="text-danger"
+                        *ngIf="
+                          signUpForm.controls['signUpPassword'].touched &&
+                          signUpForm.controls['signUpPassword'].invalid
+                        "
+                      >
+                        <span
+                          *ngIf="signUpForm.controls['signUpPassword'].errors?.['required']"
+                          >This Filed is required</span
+                        >
+                        <span
+                          *ngIf="signUpForm.controls['signUpPassword'].errors?.['pattern']"
+                          >password length at least than 8 characters , contains
+                          lowercase, uppercase, one digit and special character
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- repeat Password -->
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="repeatedPassword"
+                        >Repeat your password</label
+                      >
+                      <input
+                        type="text"
+                        id="form3Example4cd"
+                        class="form-control"
+                        formControlName="repeatedPassword"
+                      />
+                      <div
+                        class="text-danger"
+                        *ngIf="
+                          signUpForm.controls['repeatedPassword'].touched &&
+                          signUpForm.controls['repeatedPassword'].invalid
+                        "
+                      >
+                        <span
+                          *ngIf="signUpForm.controls['repeatedPassword'].errors?.['required']"
+                          >This Filed is required</span
+                        >
+                        <span
+                          *ngIf="signUpForm.controls['repeatedPassword'].errors?.['matchpassword']"
+                          >confirmed password doesn't match the password
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-lg"
+                      [disabled]="signUpForm.invalid"
+                    >
+                      Register
+                    </button>
+                  </div>
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <a routerLink="/login">have account? SignIn</a>
+                  </div>
+                </form>
+              </div>
+              <div
+                class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2"
+              >
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                  class="img-fluid"
+                  alt="Sample image"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,35 @@
+<div class="card bg-light" style="height: 450px">
+  <ng-container>
+    <div class="btn btn-success w-25 m-1" *ngIf="product.stock > 0">
+      in stock
+    </div>
+  </ng-container>
+  <ng-container>
+    <div class="btn btn-danger w-25 m-1" *ngIf="product.stock <= 0">
+      out of stock
+    </div>
+  </ng-container>
+  <div class="d-flex justify-content-center container">
+    <img
+      [src]="product.thumbnail"
+      class="p-2 img-fluid"
+      style="max-height: 180px"
+    />
+  </div>
+
+  <div class="card-body mb-4">
+    <h5 class="card-title">{{ product.title }}</h5>
+    <p class="card-text">
+      {{ product.description }}
+    </p>
+  </div>
+  <div class="my-2 d-flex align-items-center">
+    <button
+      class="btn btn-secondary mx-2"
+      (click)="redirectToProductDetails(product.id)"
+    >
+      More Details
+    </button>
+    <button class="btn btn-primary mx-2">Add to Card</button>
+  </div>
+</div>
