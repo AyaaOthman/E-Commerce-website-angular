@@ -30,6 +30,21 @@
     >
       More Details
     </button>
-    <button class="btn btn-primary mx-2">Add to Card</button>
+    <div class="d-flex w-50" *ngIf="cartButton">
+      <input type="number" class="form-control" [(ngModel)]="amount" />
+      <button
+        class="btn btn-success"
+        (click)="addProductToCart(); cartButton = false"
+      >
+        add
+      </button>
+    </div>
+    <button
+      class="btn btn-primary mx-2"
+      *ngIf="!cartButton"
+      (click)="cartButton = true"
+    >
+      Add to Card
+    </button>
   </div>
 </div>
