@@ -6,6 +6,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RouterLink, RouterModule } from '@angular/router';
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [HeaderComponent, NotFoundComponent],
@@ -16,6 +17,7 @@ import { RouterLink, RouterModule } from '@angular/router';
     NgbModule,
     RouterLink,
     RouterModule,
+    NgbCollapseModule,
   ],
   exports: [HeaderComponent],
 })

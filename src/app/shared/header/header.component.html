@@ -1,57 +1,58 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <!-- Container wrapper -->
-  <div class="container d-flex align-items-center">
-    <!-- Navbar brand -->
+<nav
+  class="navbar navbar-expand-lg navbar-light bg-light mb-3 top-0 z-1 fixed-top"
+>
+  <div class="container p-2">
+    <div class="d-flex justify-content-between align-items-center">
+      <a
+        class="nav-item"
+        class="nav-link"
+        role="button"
+        routerLink="/"
+        routerLinkActive="text-primary"
+        [routerLinkActiveOptions]="{ exact: true }"
+        ><h4>Products App</h4></a
+      >
+      <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+        <div class="d-flex align-items-center justify-content-center">
+          <button
+            type="button"
+            class="btn btn-success px-3 me-2"
+            routerLink="/login"
+          >
+            Login
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary me-3"
+            routerLink="/signup"
+          >
+            Sign up
+          </button>
+          <button
+            type="button"
+            class="btn btn-dark p-1 d-flex justify-content-center align-items-center position-relative"
+            routerLink="/cart"
+            role="button"
+          >
+            <fa-icon [icon]="faCartShopping"> </fa-icon>
+            <span
+              class="badge badge-light bg-danger ms-xl-5 mt-n3 position-absolute"
+              style="top: -12px"
+              >{{ countOfCartProducts }}</span
+            >
+          </button>
+        </div>
+      </div>
+    </div>
 
-    <!-- Toggle button -->
+    <!-- Step 3: Toggle the value of the property when the toggler button is clicked. -->
     <button
       class="navbar-toggler"
       type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarButtons"
-      aria-controls="navbarButtons"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
+      (click)="isMenuCollapsed = !isMenuCollapsed"
     >
-      <fa-icon [icon]="faBars"></fa-icon>
+      &#9776;
     </button>
-
-    <!-- Collapsible wrapper -->
-    <div class="collapse navbar-collapse" id="navbarButtons">
-      <!-- Left links -->
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            role="button"
-            routerLink="/"
-            routerLinkActive="text-primary"
-            [routerLinkActiveOptions]="{ exact: true }"
-            ><h4>Products App</h4></a
-          >
-        </li>
-      </ul>
-      <!-- Left links -->
-
-      <div class="d-flex align-items-center justify-content-center">
-        <button
-          type="button"
-          class="btn btn-success px-3 me-2"
-          routerLink="/login"
-        >
-          Login
-        </button>
-        <button type="button" class="btn btn-primary me-3" routerLink="/signup">
-          Sign up
-        </button>
-        <a class="btn btn-dark px-3" routerLink="/cart" role="button"
-          ><fa-icon [icon]="faCartShopping"></fa-icon>
-        </a>
-      </div>
-    </div>
-    <!-- Collapsible wrapper -->
   </div>
-  <!-- Container wrapper -->
 </nav>
-<!-- Navbar -->
